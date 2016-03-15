@@ -9,8 +9,14 @@ module DwollaSwagger
         self.raw = raw
 
         case self.code
-        when 500..510 then raise(ServerError, self.error_message)
-        when 299..426 then raise(ClientError, self.error_message)
+        when 500..510
+          error = ServerError.new(self.error_message)
+          error._embedded = error_embedded
+          raise error
+        when 299..426
+          error = ClientError.new(self.error_message)
+          error._embedded = error_embedded
+          raise error
         end
       end
 
@@ -20,7 +26,13 @@ module DwollaSwagger
 
       # Account for error messages that take different forms...
       def error_message
-        body['message']
+        body[:message]
+      rescue
+        body
+      end
+
+      def error_embedded
+        body[:_embedded]
       rescue
         body
       end

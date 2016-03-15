@@ -71,8 +71,10 @@ module DwollaSwagger
   end
 
   class ServerError < StandardError
+    attr_accessor :_embedded
   end
 
   class ClientError < StandardError
+    attr_accessor :_embedded
   end
 end
