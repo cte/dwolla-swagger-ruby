@@ -1,7 +1,7 @@
 module DwollaSwagger
   # 
   class Customer < BaseObject
-    attr_accessor :_links, :_embedded, :id, :first_name, :last_name, :email, :type, :status, :created
+    attr_accessor :_links, :_embedded, :id, :first_name, :last_name, :email, :type, :status, :created, :address1, :address2, :city, :state, :postal_code, :phone, :business_name, :doing_business_as, :website
     # attribute mapping from ruby-style variable name to JSON key
     def self.attribute_map
       {
@@ -31,7 +31,34 @@ module DwollaSwagger
         :'status' => :'status',
         
         # 
-        :'created' => :'created'
+        :'created' => :'created',
+        
+        # 
+        :'address1' => :'address1',
+        
+        # 
+        :'address2' => :'address2',
+        
+        # 
+        :'city' => :'city',
+        
+        # 
+        :'state' => :'state',
+        
+        # 
+        :'postal_code' => :'postalCode',
+        
+        # 
+        :'phone' => :'phone',
+        
+        # 
+        :'business_name' => :'businessName',
+        
+        # 
+        :'doing_business_as' => :'doingBusinessAs',
+        
+        # 
+        :'website' => :'website'
         
       }
     end
@@ -47,7 +74,16 @@ module DwollaSwagger
         :'email' => :'string',
         :'type' => :'string',
         :'status' => :'string',
-        :'created' => :'string'
+        :'created' => :'string',
+        :'address1' => :'string',
+        :'address2' => :'string',
+        :'city' => :'string',
+        :'state' => :'string',
+        :'postal_code' => :'string',
+        :'phone' => :'string',
+        :'business_name' => :'string',
+        :'doing_business_as' => :'string',
+        :'website' => :'string'
         
       }
     end
@@ -95,6 +131,42 @@ module DwollaSwagger
       
       if attributes[:'created']
         @created = attributes[:'created']
+      end
+      
+      if attributes[:'address1']
+        @address1 = attributes[:'address1']
+      end
+      
+      if attributes[:'address2']
+        @address2 = attributes[:'address2']
+      end
+      
+      if attributes[:'city']
+        @city = attributes[:'city']
+      end
+      
+      if attributes[:'state']
+        @state = attributes[:'state']
+      end
+      
+      if attributes[:'postalCode']
+        @postal_code = attributes[:'postalCode']
+      end
+      
+      if attributes[:'phone']
+        @phone = attributes[:'phone']
+      end
+      
+      if attributes[:'businessName']
+        @business_name = attributes[:'businessName']
+      end
+      
+      if attributes[:'doingBusinessAs']
+        @doing_business_as = attributes[:'doingBusinessAs']
+      end
+      
+      if attributes[:'website']
+        @website = attributes[:'website']
       end
       
     end

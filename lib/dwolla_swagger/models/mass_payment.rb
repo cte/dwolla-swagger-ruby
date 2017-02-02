@@ -1,7 +1,7 @@
 module DwollaSwagger
   # 
-  class Transfer < BaseObject
-    attr_accessor :_links, :_embedded, :id, :status, :amount, :created, :metadata, :clearing
+  class MassPayment < BaseObject
+    attr_accessor :_links, :_embedded, :id, :status, :created, :metadata
     # attribute mapping from ruby-style variable name to JSON key
     def self.attribute_map
       {
@@ -19,16 +19,10 @@ module DwollaSwagger
         :'status' => :'status',
         
         # 
-        :'amount' => :'amount',
-        
-        # 
         :'created' => :'created',
         
         # 
-        :'metadata' => :'metadata',
-        
-        # 
-        :'clearing' => :'clearing'
+        :'metadata' => :'metadata'
         
       }
     end
@@ -36,14 +30,12 @@ module DwollaSwagger
     # attribute type
     def self.swagger_types
       {
-        :'_links' => :'map[string,HalLink]',
+        :'_links' => :'object',
         :'_embedded' => :'object',
         :'id' => :'string',
         :'status' => :'string',
-        :'amount' => :'Money',
-        :'created' => :'DateTime',
-        :'metadata' => :'object',
-        :'clearing' => :'Clearing'
+        :'created' => :'string',
+        :'metadata' => :'object'
         
       }
     end
@@ -56,9 +48,7 @@ module DwollaSwagger
 
       
       if attributes[:'_links']
-        if (value = attributes[:'_links']).is_a?(Array)
-          @_links = value
-        end
+        @_links = attributes[:'_links']
       end
       
       if attributes[:'_embedded']
@@ -73,20 +63,12 @@ module DwollaSwagger
         @status = attributes[:'status']
       end
       
-      if attributes[:'amount']
-        @amount = attributes[:'amount']
-      end
-      
       if attributes[:'created']
         @created = attributes[:'created']
       end
       
       if attributes[:'metadata']
         @metadata = attributes[:'metadata']
-      end
-      
-      if attributes[:'clearing']
-        @clearing = attributes[:'clearing']
       end
       
     end

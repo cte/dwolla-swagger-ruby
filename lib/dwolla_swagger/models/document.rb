@@ -1,7 +1,7 @@
 module DwollaSwagger
   # 
   class Document < BaseObject
-    attr_accessor :_links, :id, :status, :type, :created, :_embedded
+    attr_accessor :_links, :id, :status, :type, :created, :failure_reason, :_embedded
     # attribute mapping from ruby-style variable name to JSON key
     def self.attribute_map
       {
@@ -22,6 +22,9 @@ module DwollaSwagger
         :'created' => :'created',
         
         # 
+        :'failure_reason' => :'failureReason',
+        
+        # 
         :'_embedded' => :'_embedded'
         
       }
@@ -35,6 +38,7 @@ module DwollaSwagger
         :'status' => :'string',
         :'type' => :'string',
         :'created' => :'DateTime',
+        :'failure_reason' => :'string',
         :'_embedded' => :'object'
         
       }
@@ -67,6 +71,10 @@ module DwollaSwagger
       
       if attributes[:'created']
         @created = attributes[:'created']
+      end
+      
+      if attributes[:'failureReason']
+        @failure_reason = attributes[:'failureReason']
       end
       
       if attributes[:'_embedded']
